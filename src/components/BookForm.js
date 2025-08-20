@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { createBook } from "../api/bookApi";
 
-function BookForm({ refresh }) {
+function BookForm() {
   const [form, setForm] = useState({ title: "", author: "", published_year: "" });
 
   const handleChange = (e) => {
@@ -11,8 +11,8 @@ function BookForm({ refresh }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await createBook(form);
-    setForm({ title: "", author: "", published_year: "" }); // clear after create
-    if (refresh) refresh();
+    setForm({ title: "", author: "", published_year: "" });
+    window.location.reload();
   };
 
   return (
