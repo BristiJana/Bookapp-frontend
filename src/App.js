@@ -1,23 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import BookList from "./components/BookList";
+import BookForm from "./components/BookForm";
+import BookDetail from "./components/BookDetail";
+import ImportBook from "./components/ImportBook";
+import ReportChart from "./components/ReportChart";
+import "./App.css";
 
 function App() {
+  const [selectedBookId, setSelectedBookId] = useState(null);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <h1>📚 Book Management App</h1>
+      <div className="grid">
+        <BookList onSelect={setSelectedBookId} />
+        <BookForm />
+        <ImportBook/>
+        <ReportChart />
+        <BookDetail bookId={selectedBookId} />
+      </div>
     </div>
   );
 }
