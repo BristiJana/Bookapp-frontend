@@ -2,7 +2,7 @@ import axios from "axios";
 
 // Set base URL of Django backend
 const API = axios.create({
-  baseURL: "http://127.0.0.1:8000/api/", 
+  baseURL: "https://bookapp-backend-7o3y.onrender.com/api/", 
 });
 
 export const getBooks = () => API.get("books/");
